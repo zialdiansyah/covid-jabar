@@ -67,7 +67,8 @@ export default function Home({ data }) {
           </div>
         </div>
       </div>
-      <div className="text-sm text-center">Data from <a href="https://covid19-public.digitalservice.id/api/v1/">Pikobar Jabar</a></div>
+      <div className="text-sm text-center mb-4">Data from <a href="https://covid19-public.digitalservice.id/api/v1/">Pikobar Jabar</a></div>
+      <div className="text-sm text-center">Icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     </div>
   )
 }

@@ -1,0 +1,21 @@
+{
+  "name": "Data Covid19 Jabar",
+  "short_name": "covid-jabar",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/icons/64x64virus.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/128x128virus.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ]
+}
