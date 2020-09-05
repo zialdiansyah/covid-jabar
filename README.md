@@ -1,4 +1,4 @@
-This is a [Covid Jabar Monitoring App](https://nextjs.org/) using next js & tailwind css
+This is a [Covid Jabar Monitoring App](https://covid-jabar.vercel.app/), using next js & tailwind css.
 
 ## Getting Started
 

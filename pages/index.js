@@ -74,7 +74,7 @@ export default function Home({ data }) {
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`http://localhost:3000/api/covid_jabar`)
+  const res = await fetch(`https://covid-jabar.vercel.app/api/covid_jabar`)
   const data = await res.json()
 
   // Pass data to the page via props
