@@ -67,7 +67,7 @@ export default function Home({ data }) {
           </div>
         </div>
       </div>
-      <div className="text-sm text-center">Using Pikobar Jabar Public API</div>
+      <div className="text-sm text-center">Data from <a href="https://covid19-public.digitalservice.id/api/v1/">Pikobar Jabar</a></div>
     </div>
   )
 }
