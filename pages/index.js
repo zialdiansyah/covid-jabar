@@ -1,6 +1,14 @@
 import Head from 'next/head'
+import fetch from 'isomorphic-unfetch'
+import useSwr from 'swr'
 
-export default function Home({ data }) {
+const fetcher = (url) => fetch(url).then(r => r.json())
+
+export default function Home() {
+  const { data, error } = useSwr('/api/covid_jabar', fetcher)
+
+  if (error) return <div>Failed to load data</div>
+  if (!data) return <div>Loading...</div>
   return (
     <div className="container mx-auto">
       <Head>
@@ -73,11 +81,11 @@ export default function Home({ data }) {
   )
 }
 
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch(`https://covid-jabar.vercel.app/api/covid_jabar`)
-  const data = await res.json()
+// export async function getServerSideProps() {
+//   // Fetch data from external API
+//   const res = await fetch(`http://localhost:3000/api/covid_jabar`)
+//   const data = await res.json()
 
-  // Pass data to the page via props
-  return { props: { data } }
-}
+//   // Pass data to the page via props
+//   return { props: { data } }
+// }

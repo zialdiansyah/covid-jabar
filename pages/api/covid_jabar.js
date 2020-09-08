@@ -24,14 +24,16 @@ async function getTodayCases () {
   const response = await fetch('https://covid19-public.digitalservice.id/api/v1/rekapitulasi/jabar/harian')
   const { data } = await response.json()
   const today = getToday()
+  let today_case = {}
   
   const today_data = await data.content.filter((el, index, arr) => el.tanggal === today)
-  const today_case = {
-    positif: today_data[0].positif,
-    sembuh: today_data[0].sembuh,
-    meninggal: today_data[0].meninggal
+  if(today_data.length > 0) {
+    today_case = {
+      positif: today_data[0].positif,
+      sembuh: today_data[0].sembuh,
+      meninggal: today_data[0].meninggal
+    }
   }
-  console.log(today_case)
   return today_case
 }
 
