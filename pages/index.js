@@ -15,7 +15,7 @@ export default function Home() {
         <title>Covid19 Jabar</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className="text-4xl font-bold text-center mb-20">Covid19 Jabar</h1>
+      <h1 className="text-4xl font-bold text-center mb-10 mt-2">Covid19 Jabar</h1>
       <div className="flex-col justify-center mb-20">
         <div className="flex-1 rounded overflow-hidden shadow-lg bg-yellow-400 mx-2 mb-4">
           <div className="px-6 py-4 text-center text-xl">
@@ -80,12 +80,3 @@ export default function Home() {
     </div>
   )
 }
-
-// export async function getServerSideProps() {
-//   // Fetch data from external API
-//   const res = await fetch(`http://localhost:3000/api/covid_jabar`)
-//   const data = await res.json()
-
-//   // Pass data to the page via props
-//   return { props: { data } }
-// }
