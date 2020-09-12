@@ -1,12 +1,22 @@
 {
-  "name": "Data Covid19 Jabar",
-  "short_name": "covid-jabar",
+  "name": "covid-jabar",
+  "short_name": "covidjabar",
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#FFFFFF",
   "background_color": "#FFFFFF",
   "start_url": "/",
   "icons": [
+    {
+      "src": "/icons/16x16virus.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/32x32virus.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
     {
       "src": "/icons/64x64virus.png",
       "sizes": "64x64",
@@ -15,6 +25,11 @@
     {
       "src": "/icons/128x128virus.png",
       "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/256x256virus.png",
+      "sizes": "256x256",
       "type": "image/png"
     }
   ]
