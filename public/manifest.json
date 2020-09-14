@@ -1,6 +1,7 @@
 {
-  "name": "covid-jabar",
+  "name": "Jabar Covid19 Cases",
   "short_name": "covidjabar",
+  "description": "Kasus Covid19 di Jawa Barat",
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#FFFFFF",
@@ -24,7 +25,7 @@
     },
     {
       "src": "/icons/android-chrome-512x512.png",
-      "sizes": "256x256",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]
