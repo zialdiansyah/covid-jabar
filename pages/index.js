@@ -1,11 +1,9 @@
-import Head from 'next/head'
+
+import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
 import useSwr from 'swr'
 
 const fetcher = (url) => fetch(url).then(r => r.json())
-
-const APP_NAME = "CovidJabar"
-const APP_DESCRIPTION = "Jawa Barat Covid Tracker"
 
 export default function Home() {
   const { data, error } = useSwr('/api/covid_jabar', fetcher)
@@ -14,28 +12,8 @@ export default function Home() {
   if (!data) return <div>Loading...</div>
   return (
     <div className="container mx-auto">
-      <Head>
-        <title>Covid19 Jabar</title>
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name='description' content={APP_DESCRIPTION} />
-        <meta name="keywords" content="Covid, Jabar" />
-        <meta name='format-detection' content='telephone=no' />
-        <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover' />
-        <meta name='application-name' content={APP_NAME} />
-
-        <meta name='mobile-web-app-capable' content='yes' />
-        <meta name='theme-color' content='#48BB78' />
-        
-        <meta name='apple-mobile-web-app-title' content={APP_NAME} />
-        <meta name='apple-mobile-web-app-capable' content='yes' />
-        <meta name='apple-mobile-web-app-status-bar-style' content='default' />
-        <link rel='apple-touch-icon' sizes='180x180' href='/icons/apple-touch-icon.png' />
-        
-        <link rel='manifest' href='/manifest.json' />
-        <link rel='shortcut icon' href='/icons/favicon.ico' />
-      </Head>
       <h1 className="text-xl font-bold text-center my-4">Covid19 di Jawa Barat per hari ini:</h1>
-      <div className="flex-col justify-center mb-20">
+      <div className="flex-col justify-center mb-5">
         <div className="flex-1 rounded overflow-hidden shadow-lg bg-yellow-400 mx-2">
           <div className="px-4 py-2 text-center text-xl">
             <div className="font-bold mb-2">Terinfeksi</div>
@@ -93,6 +71,11 @@ export default function Home() {
             }
           </div>
         </div>
+      </div>
+      <div className="text-sm text-center mb-20">
+        <Link href="/sebaran">
+          <a>[Data sebaran]</a>
+        </Link>
       </div>
       <div className="text-sm text-center">Data from <a href="https://covid19-public.digitalservice.id/api/v1/">Pikobar Jabar</a></div>
     </div>
