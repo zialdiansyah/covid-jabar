@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import '../styles/tailwind.css'
+import '../styles/loading.css'
 
 const APP_NAME = "CovidJabar"
 const APP_DESCRIPTION = "Jawa Barat Covid Tracker"
@@ -26,8 +27,10 @@ function MyApp({ Component, pageProps }) {
         
         <link rel='manifest' href='/manifest.json' />
         <link rel='shortcut icon' href='/icons/favicon.ico' />
+        <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/react-datepicker/2.14.1/react-datepicker.min.css" />
       </Head>
       <Component {...pageProps} />
+      <div className="text-sm text-center">Data from <a href="https://covid19-public.digitalservice.id/api/v1/">Pikobar Jabar</a></div>
     </div>
   )
 }
