@@ -1,4 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import { format } from 'date-fns'
 
 export default async (req, res) => {
   if(req.method !== 'GET') {
@@ -23,7 +24,7 @@ function getToday () {
 async function getTodayCases () {
   const response = await fetch('https://covid19-public.digitalservice.id/api/v1/rekapitulasi/jabar/harian')
   const { data } = await response.json()
-  const today = getToday()
+  const today = format(new Date(), 'yyyy-MM-dd')
   let today_case = {}
   
   const today_data = await data.content.filter((el, index, arr) => el.tanggal === today)

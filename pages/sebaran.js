@@ -15,9 +15,10 @@ export default function Sebaran() {
     setLoading(false)
     setCases(data)
   }
+  
   const [cases, setCases] = useState([]);
   const [startDate, setStartDate] = useState(new Date());
-  const [city, setCity] = useState(3217);
+  const [city, setCity] = useState(3204);
   const [loading, setLoading] = useState(false);
 
   if (error) return <div>Failed to load data</div>
@@ -49,7 +50,7 @@ export default function Sebaran() {
           loading
           ?
           <div className="text-center">
-            <div className="lds-hourglass"></div>
+            <div class="lds-dual-ring"></div>
           </div>
           :
           ''

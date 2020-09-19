@@ -66,7 +66,7 @@ export default function Home() {
       </div>
         :
         <div className="text-center mb-20">
-          <div className="lds-hourglass"></div>
+          <div class="lds-dual-ring"></div>
           <p>Memuat data...</p>
         </div>
       }
