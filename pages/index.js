@@ -54,7 +54,19 @@ export default function Home() {
           </div>
           <div className="w-1/2">
             <Card title="Dirawat" color="bg-orange-500">
-              <div>{data.total_cases.positif - data.total_cases.meninggal - data.total_cases.sembuh || 0}</div>
+              <div>{data.total_cases.dirawat || 0}</div>
+              {
+                data.today_cases.dirawat
+                ?
+                <div className="inline-flex items-center  text-sm">
+                  (
+                    <Arrow />
+                    <span>{data.today_cases.dirawat}</span>
+                  )
+                </div>
+                :
+                ''
+              }
             </Card>
           </div>
           <div className="w-1/2">

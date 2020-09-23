@@ -13,29 +13,38 @@ export default async (req, res) => {
 }
 
 async function getTodayCases () {
-  const response = await fetch('https://covid19-public.digitalservice.id/api/v1/rekapitulasi/jabar/harian')
+  const response = await fetch('https://covid19-public.digitalservice.id/api/v1/rekapitulasi_v2/jabar/harian?level=prov')
   const { data } = await response.json()
-  const today = format(new Date(), 'yyyy-MM-dd')
-  let today_case = {}
+  // const today = format(new Date(), 'yyyy-MM-dd')
+  // const today_data = await data.content.filter((el, index, arr) => el.tanggal === today)
+  // let today_case = {}
   
-  const today_data = await data.content.filter((el, index, arr) => el.tanggal === today)
-  if(today_data.length > 0) {
-    today_case = {
-      positif: today_data[0].positif,
-      sembuh: today_data[0].sembuh,
-      meninggal: today_data[0].meninggal
-    }
+  // if(today_data.length > 0) {
+  //   today_case = {
+  //     positif: today_data[0].positif,
+  //     sembuh: today_data[0].sembuh,
+  //     meninggal: today_data[0].meninggal
+  //   }
+  // }
+  const [ cases ] = data.content.slice(-1)
+  const today_cases = {
+    positif: cases.CONFIRMATION,
+    dirawat: cases.confirmation_diisolasi,
+    sembuh: cases.confirmation_selesai,
+    meninggal: cases.confirmation_meninggal
   }
-  return today_case
+  return today_cases
 }
 
 async function getTotalCases () {
-  const response = await fetch('https://covid19-public.digitalservice.id/api/v1/rekapitulasi/jabar')
+  const response = await fetch('https://covid19-public.digitalservice.id/api/v1/rekapitulasi_v2/jabar/kumulatif?level=prov')
   const { data } = await response.json()
+  const [cases] = data.content.slice(-1)
   const total_cases = {
-    positif: data.content.positif,
-    sembuh: data.content.sembuh,
-    meninggal: data.content.meninggal
+    positif: cases.CONFIRMATION,
+    dirawat: cases.confirmation_diisolasi,
+    sembuh: cases.confirmation_selesai,
+    meninggal: cases.confirmation_meninggal
   }
   return total_cases
 }
