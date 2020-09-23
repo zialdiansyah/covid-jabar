@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/react-datepicker/2.14.1/react-datepicker.min.css" />
       </Head>
       <Component {...pageProps} />
-      <div className="text-sm text-center mt-15">Data from <a href="https://covid19-public.digitalservice.id/api/v1/">Pikobar Jabar</a></div>
+      <div className="text-sm text-center mt-15">Data from <a className="text-blue-700" href="https://covid19-public.digitalservice.id/api/v1/">Pikobar Jabar</a> & <a className="text-blue-700" href="https://dekontaminasi.com">Dekontaminasi</a></div>
     </div>
   )
 }
