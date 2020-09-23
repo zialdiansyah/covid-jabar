@@ -17,7 +17,7 @@ async function getSebaran (code = 3217, date) {
     date = format(new Date(), 'yyyy-MM-dd')
   }
   const response = await fetch(`https://covid19-public.digitalservice.id/api/v1/sebaran_app_v2/jabar?kode_kab=${code}&tanggal_update=${date}`)
-  const { data } = await response.json()
+  const { data } = await response.json().filter(resp => resp.stage !== 'Discarded')
   const content = data.content
   return content
 }

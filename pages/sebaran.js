@@ -15,7 +15,7 @@ export default function Sebaran() {
     setLoading(false)
     setCases(data)
   }
-  
+
   const [cases, setCases] = useState([]);
   const [startDate, setStartDate] = useState(new Date());
   const [city, setCity] = useState(3204);
@@ -25,9 +25,14 @@ export default function Sebaran() {
 
   return (
     <div className="container mx-auto">
-      <h1 className="text-xl font-bold text-center my-4">Sebaran</h1>
+      <div className="flex flex-row my-4">
+        <Link href="/">
+            <a className="w-1/5 text-blue-700 text-center">[Back]</a>
+        </Link>
+        <h1 className="w-3/5 text-xl font-bold text-center">Sebaran</h1>
+      </div>
       <p className="text-m text-center mb-1">Pilih Kota/Kabupaten</p>
-      <div className="flex flex-col md:w-1/2 mx-auto px-4 mb-5">
+      <div className="flex flex-col md:w-1/2 mx-auto px-4 mb-20">
         {
           !data ? <div className="text-center mb-2">Memuat data...</div>
           :
@@ -50,7 +55,7 @@ export default function Sebaran() {
           loading
           ?
           <div className="text-center">
-            <div class="lds-dual-ring"></div>
+            <div className="lds-dual-ring"></div>
           </div>
           :
           ''
@@ -60,12 +65,11 @@ export default function Sebaran() {
           ?
           cases.map(item => {
             return (
-              <div key={item.id}>
+              <div key={item.id} className="mb-2">
                 <p className="flex justify-between"><span>Kecamatan:</span> <span>{item.nama_kec}</span></p>
                 <p className="flex justify-between"><span>Kelurahan:</span> <span>{item.nama_kel}</span></p>
                 <p className="flex justify-between"><span>Status:</span> <span>{item.status}</span></p>
                 <p className="flex justify-between"><span>Stage:</span> <span>{item.stage}</span></p>
-                <p className="flex justify-between"><span>Umur:</span> <span>{item.umur}</span></p>
                 <hr />
               </div>
             )
@@ -73,11 +77,6 @@ export default function Sebaran() {
           :
           <div className="text-center">---</div>
         }
-      </div>
-      <div className="text-sm text-center mb-20">
-        <Link href="/">
-          <a>[Back]</a>
-        </Link>
       </div>
     </div>
   )

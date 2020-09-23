@@ -7,18 +7,9 @@ export default async (req, res) => {
   }
   const total_cases = await getTotalCases()
   const today_cases = await getTodayCases()
+  const indo_cases = await getAllCases()
 
-  res.status(200).end(JSON.stringify({total_cases, today_cases}))
-}
-
-function getToday () {
-  let today = new Date();
-  let dd = String(today.getDate()).padStart(2, '0');
-  let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-  let yyyy = today.getFullYear();
-
-  today = yyyy+ '-' + mm + '-' + dd;
-  return today
+  res.status(200).end(JSON.stringify({total_cases, today_cases, indo_cases}))
 }
 
 async function getTodayCases () {
@@ -47,4 +38,10 @@ async function getTotalCases () {
     meninggal: data.content.meninggal
   }
   return total_cases
+}
+
+async function getAllCases () {
+  const response = await fetch('https://dekontaminasi.com/api/id/covid19/stats')
+  const { numbers, regions } = await response.json()
+  return { numbers, regions }
 }
